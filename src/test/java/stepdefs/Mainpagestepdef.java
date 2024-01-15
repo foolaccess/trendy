@@ -10,12 +10,16 @@ import org.testng.annotations.BeforeClass;
 import org.trendy.pages.Mainloginpage;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 
 public class Mainpagestepdef {
 
     // driver//
     private WebDriver driver;
     private Mainloginpage mainpage;
+
 
 
     @BeforeClass
@@ -45,9 +49,10 @@ public class Mainpagestepdef {
     public void Coming_to_main_page () {
 
 
-        driver.get("https://www.trendyol.com/giris?cb=%2F");
         //System.out.println("Test executed!");//
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.gsfdsdfsfdoogle.com", "test positive"); ;
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.trendyol.com/giris?cb=%2F", "test positive");
+
+
     }
     @Test
     public void girisyap() {
@@ -56,11 +61,17 @@ public class Mainpagestepdef {
 
         System.out.println("dsfadgf");
 
+
         mainpage.sifregirisyap("abcdasdad");
+
+
 
         System.out.println("sdfasdfdff");
 
-        Assert.assertEquals(driver.getCurrentUrl(), "www.jlfjjf.com/mamet", "yanlış giriş");
+       mainpage.loginclick();
+
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.trendyol.com/giris?cb=%2F", "positive");
         
+
 
 }}

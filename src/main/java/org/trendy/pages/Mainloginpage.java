@@ -11,6 +11,7 @@ private WebDriver driver;
 
 
 
+
     //constructor//
 
     public Mainloginpage(WebDriver driver)
@@ -35,5 +36,13 @@ private WebDriver driver;
         WebElement sifrekutusu = driver.findElement(By.xpath("//input[@id='login-password-input']"));
         sifrekutusu.sendKeys(sifre);
 
+    }
 
-}}
+public void loginclick(){
+
+    WebElement loginbutton= driver.findElement(By.xpath("//body[1]/div[1]/div[3]/div[3]/div[1]/form[1]/button[1]/span[1]"));
+    loginbutton.click();
+}
+
+
+}

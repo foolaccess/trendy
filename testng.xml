@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/MSD/Documents/SDET/SELENIUM/TRENDY/src">
+        <classes>
+            <class name="stepdefs.Mainpagestepdef">
+                <methods>
+                    <include name="Coming_to_main_page"/>
+                    <include name="girisyap"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
