@@ -1,24 +1,21 @@
 package stepdefs;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.trendy.pages.Mainloginpage;
+import org.trendy.pages.Homepage;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
-public class Mainpagestepdef {
+public class Homepagesteps {
 
     // driver//
     private WebDriver driver;
-    private Mainloginpage mainpage;
+    private Homepage mainpage;
 
 
 
@@ -30,9 +27,11 @@ public class Mainpagestepdef {
 
         driver = new ChromeDriver();
 
-        mainpage = new Mainloginpage(driver);
+        mainpage = new Homepage(driver);
 
-        driver.get("https://www.trendyol.com/giris?cb=%2F");
+        driver.get("https://www.trendyol.com/");
+
+        driver.manage().window().fullscreen();
 
         System.out.println("Test executed!");
     }
@@ -46,11 +45,12 @@ public class Mainpagestepdef {
 
 
     @Test
-    public void Coming_to_main_page () {
+    public void comingTologinPage() {
 
-
+        mainpage.gotologinpage();
         //System.out.println("Test executed!");//
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.trendyol.com/giris?cb=%2F", "test positive");
+
+        Assert.assertEquals(driver.getCurrentUrl(),"https://www.trendyol.com/giris?cb=%2F","test conducted");
 
 
     }
@@ -61,14 +61,11 @@ public class Mainpagestepdef {
 
         System.out.println("dsfadgf");
 
-
         mainpage.sifregirisyap("abcdasdad");
-
-
 
         System.out.println("sdfasdfdff");
 
-       mainpage.loginclick();
+        mainpage.loginclick();
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.trendyol.com/giris?cb=%2F", "positive");
         

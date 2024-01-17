@@ -2,7 +2,7 @@
 <suite name="MyTestSuite">
     <test name="MyFirstTest">
         <classes>
-            <class name="stepdefs.Mainpagestepdef"/>
+            <class name="stepdefs.Homepagesteps"/>
         </classes>
     </test>
 </suite>
