@@ -1,6 +1,8 @@
 package stepdefs;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -15,7 +17,7 @@ public class Homepagesteps {
 
     // driver//
     private WebDriver driver;
-    private Homepage mainpage;
+    private Homepage homepage;
 
 
 
@@ -27,11 +29,11 @@ public class Homepagesteps {
 
         driver = new ChromeDriver();
 
-        mainpage = new Homepage(driver);
+        homepage = new Homepage(driver);
 
         driver.get("https://www.trendyol.com/");
 
-        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
 
         System.out.println("Test executed!");
     }
@@ -47,28 +49,33 @@ public class Homepagesteps {
     @Test
     public void comingTologinPage() {
 
-        mainpage.gotologinpage();
+        homepage.gotologinpage();
         //System.out.println("Test executed!");//
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.trendyol.com/giris?cb=%2F","test conducted");
-
 
     }
     @Test
     public void girisyap() {
 
-        mainpage.emailgirisyap("test12.com");
+        homepage.emailgirisyap("test12.com");
 
         System.out.println("dsfadgf");
 
-        mainpage.sifregirisyap("abcdasdad");
+        homepage.sifregirisyap("abcdasdad");
 
         System.out.println("sdfasdfdff");
 
-        mainpage.loginclick();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.trendyol.com/giris?cb=%2F", "positive");
-        
+        WebElement Logbutton= driver.findElement(By.xpath("//body[1]/div[1]/div[3]/div[3]/div[1]/form[1]/button[1]/span[1]"));
 
+        Logbutton.click();
+
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.trendyol.com/dgiris?cb=%2F", "positive");
+
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 }}

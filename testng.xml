@@ -5,7 +5,7 @@
         <classes>
             <class name="stepdefs.Homepagesteps">
                 <methods>
-                    <include name="Coming_to_main_page"/>
+                    <include name="comingTologinPage"/>
                     <include name="girisyap"/>
                 </methods>
             </class>

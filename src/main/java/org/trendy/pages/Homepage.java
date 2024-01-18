@@ -13,6 +13,7 @@ public class Homepage {
 private WebDriver driver;
 
 
+By hh=By.cssSelector("sa");
 
 
     //constructor//
@@ -25,15 +26,14 @@ private WebDriver driver;
     /* methods with locators*/
 
     public void gotologinpage(){
-        WebElement logincontainer= driver.findElement(By.cssSelector("div.wrapper div.header div:nth-child(3) div:nth-child(1) div:nth-child(2) div.account-navigation-wrapper > div.account-nav-item.user-login-container:nth-child(1)"));
+        WebElement logincontainer= driver.findElement(By.xpath("//body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]"));
         Actions actions = new Actions(driver);
         actions.moveToElement(logincontainer).perform();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        WebElement loginpagebutton= driver.findElement(By.xpath("//div[contains(text(),'Giriş Yap')]"));
-        actions.click(loginpagebutton);
+        WebElement loginpagebutton= driver.findElement(By.cssSelector("div.wrapper div.header div.account-navigation-wrapper div.account-nav-item.user-login-container:nth-child(1) div.new-login-dropdown div.user-notloggedin-container.container-padding > div.login-button"));
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
-
+        loginpagebutton.click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
     }
 
@@ -49,12 +49,5 @@ private WebDriver driver;
         sifrekutusu.sendKeys(sifre);
 
     }
-
-    public void loginclick(){
-
-    WebElement loginbutton= driver.findElement(By.xpath("//body[1]/div[1]/div[3]/div[3]/div[1]/form[1]/button[1]/span[1]"));
-    loginbutton.click();
-    }
-
 
 }
