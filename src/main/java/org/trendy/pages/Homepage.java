@@ -10,13 +10,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Homepage {
     //driver //
-private WebDriver driver;
+protected WebDriver driver;
 
-
-By hh=By.cssSelector("sa");
-
-
-    //constructor//
+ //constructor//
 
     public Homepage(WebDriver driver)
 
@@ -37,17 +33,7 @@ By hh=By.cssSelector("sa");
 
     }
 
-    public void emailgirisyap(String email) {
-        WebElement emailkutusu = driver.findElement(By.xpath("//input[@id='login-email']"));
-        emailkutusu.sendKeys(email);
-
 
     }
 
-    public void sifregirisyap(String sifre) {
-        WebElement sifrekutusu = driver.findElement(By.xpath("//input[@id='login-password-input']"));
-        sifrekutusu.sendKeys(sifre);
 
-    }
-
-}

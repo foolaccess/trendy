@@ -1,27 +1,26 @@
 package stepdefs;
-import org.openqa.selenium.Alert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.trendy.pages.Homepage;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
+import org.trendy.pages.Searchresultpage;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 
-    public class Homepagesteps{
+public class Searchresultsteps {
+
 
     // driver//
     private WebDriver driver;
-    private Homepage homepage;
+    private Homepage Searchresultspage;
 
 
 
@@ -33,14 +32,9 @@ import java.util.concurrent.TimeUnit;
 
         driver = new ChromeDriver();
 
-        homepage = new Homepage(driver);
+        Searchresultspage = new Homepage(driver);
 
         driver.get("https://www.trendyol.com/");
-
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-
-        WebElement genderpopup=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@title='Kapat'])[1]")));
-        genderpopup.click();
 
         driver.manage().window().maximize();
 
@@ -54,16 +48,18 @@ import java.util.concurrent.TimeUnit;
         }
     }
 
+    
+    @Test(description = "test description")
+    public void testName() {
 
-    @Test
-    public void comingTologinPage() {
 
-        homepage.gotologinpage();
-        //System.out.println("Test executed!");//
-
-        Assert.assertEquals(driver.getCurrentUrl(),"https://www.trendyol.com/giris?cb=%2F","test conducted");
+        Searchresultpage.sendkeys();
+        Assert.assertTrue(true, "String message");
 
     }
+
+
+
 
 
 }

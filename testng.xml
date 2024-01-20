@@ -6,6 +6,10 @@
             <class name="stepdefs.Homepagesteps">
                 <methods>
                     <include name="comingTologinPage"/>
+                </methods>
+            </class>
+            <class name="stepdefs.Loginpagesteps">
+                <methods>
                     <include name="girisyap"/>
                 </methods>
             </class>
